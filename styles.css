@@ -112,6 +112,7 @@ table.dataframe td {
 .pagination .page-item.active .page-link {
     background-color: var(--bsu-blue);
     border-color: var(--bsu-blue);
+    color: white;
 }
 
 .pagination .page-link:hover {
