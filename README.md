@@ -1,140 +1,97 @@
 # BIN Lookup Tool
 
-A simple, client-side web application for searching Bank Identification Numbers (BINs) from a comprehensive database.
+A client-side web application for searching Bank Identification Numbers (BINs) from a comprehensive database. No backend required.
+
+[Live Demo](https://timlp79.github.io/bin-lookup-js/)
+
+---
+
+## Tech Stack
+
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+
+---
 
 ## Features
 
-- **BIN Search**: Search by BIN number prefix to find matching card records
-- **Keyword Search**: Search across all columns using space-separated keywords
-- **Pagination**: Navigate through large result sets with configurable items per page
-- **Responsive Design**: Clean, professional interface that works on desktop and mobile
-- **Real-time Results**: Instant search results with no backend required
-- **Client-Side Processing**: All data processing happens in the browser for fast performance
+- Search by BIN number prefix
+- Keyword search across all columns with AND logic
+- Paginated results with configurable page size
+- Real-time results with no backend or server required
+- All data loaded once and cached in the browser
+
+---
+
+## Getting Started
+
+Open `index.html` in any modern browser. The tool will fetch and cache the BIN dataset automatically on load.
+
+---
 
 ## How to Use
 
-### Running the Tool
-
-1. Ensure all files (`index.html`, `styles.css`, `script.js`) are in the same directory
-2. Open `index.html` in any modern web browser
-3. Wait for the data to load (you'll see "System Ready" when complete)
-4. Choose your search method using the tabs
-
 ### BIN Search
 
-1. Click the "BIN Search" tab
-2. Enter a BIN number (or partial BIN) in the search field
-   - Example: `414720` will find all BINs starting with 414720
-3. Set the number of results per page (default: 10)
-4. Click "Search" or press Enter
-5. Browse results using the pagination controls
+1. Click the **BIN Search** tab
+2. Enter a BIN number or partial BIN (e.g. `414720`)
+3. Set results per page and click **Search**
+4. Navigate results with the pagination controls
 
 ### Keyword Search
 
-1. Click the "Keyword Search" tab
-2. Enter one or more keywords separated by spaces
-   - Example: `visa credit usa` will find records containing all three terms
-3. Set the number of results per page (default: 10)
-4. Click "Search" or press Enter
-5. Browse results using the pagination controls
+1. Click the **Keyword Search** tab
+2. Enter one or more space-separated keywords (e.g. `visa credit usa`)
+3. All keywords must match (AND logic)
+4. Set results per page and click **Search**
+
+---
 
 ## Technical Details
 
-### Technology Stack
-
-- **HTML5**: Structure and layout
-- **CSS3**: Styling with CSS variables for theming
-- **Vanilla JavaScript**: No frameworks required
-- **CSV Parsing**: Custom parser for handling CSV data
-
 ### Data Source
 
-The tool loads BIN data from:
+BIN data is loaded from:
+
 ```
 https://raw.githubusercontent.com/venelinkochev/bin-list-data/refs/heads/master/bin-list-data.csv
 ```
 
+Requires an internet connection on first load. The CSV must be accessible via a CORS-enabled URL.
+
 ### Browser Compatibility
 
-Works with all modern browsers that support:
-- ES6+ JavaScript (async/await, arrow functions, etc.)
-- Fetch API
-- CSS Grid and Flexbox
+Requires ES6+, Fetch API, CSS Grid, and Flexbox. Works on all modern browsers (Chrome 60+, Firefox 55+, Safari 11+, Edge 79+).
 
-Recommended browsers:
-- Chrome 60+
-- Firefox 55+
-- Safari 11+
-- Edge 79+
+---
 
-### File Structure
+## Project Structure
 
 ```
-bin-lookup/
-├── index.html          # Main HTML structure
-├── styles.css          # Custom CSS styling
-├── script.js           # JavaScript application logic
-└── README.md           # This file
+bin-lookup-js/
+├── index.html      # Main HTML structure
+├── styles.css      # Custom CSS styling
+├── script.js       # Application logic
+└── README.md
 ```
 
-## Features in Detail
-
-### Search Capabilities
-
-- **Prefix Matching**: BIN search uses startsWith() for efficient prefix matching
-- **Multi-column Search**: Keyword search examines all columns in the dataset
-- **Case-Insensitive**: All keyword searches ignore case
-- **Multiple Keywords**: Keyword search requires ALL keywords to match (AND logic)
-
-### User Interface
-
-- **Tabbed Interface**: Switch between search modes easily
-- **Sticky Headers**: Table headers remain visible while scrolling
-- **Hover Effects**: Visual feedback on interactive elements
-- **Status Messages**: Clear success/error messages for user actions
-- **Keyboard Support**: Press Enter to submit searches
-
-### Performance
-
-- **In-Memory Data**: All data loaded once and cached in browser memory
-- **Efficient Filtering**: JavaScript array methods for fast searching
-- **Lazy Rendering**: Only renders visible page of results
-- **Minimal Dependencies**: No external libraries required
+---
 
 ## Customization
 
-### Changing Colors
+Colors and theming are controlled via CSS variables in `styles.css`. Edit the `:root` block to change the color scheme.
 
-The tool uses CSS variables for theming. Edit these in `styles.css` at the `:root` section:
-
-```css
-:root {
-    --bsu-blue: #0033A0;        /* Primary color */
-    --bsu-orange: #D64309;      /* Accent color */
-    --bsu-light-gray: #f4f4f4;  /* Background */
-    --bsu-dark-gray: #333;      /* Text color */
-}
-```
-
-### Changing Data Source
-
-To use a different CSV file, modify the `loadData()` function in `script.js`:
-
-```javascript
-const response = await fetch('YOUR_CSV_URL_HERE');
-```
-
-## Limitations
-
-- Requires internet connection to load CSV data
-- CSV file must be accessible via CORS-enabled URL
-- Large datasets may take time to load initially
-
-## License
-
-This project is provided as-is for educational and personal use.
+---
 
 ## Credits
 
-- **BIN Data**: [venelinkochev/bin-list-data](https://github.com/venelinkochev/bin-list-data)
-- **Design**: Boise State University color scheme
+- BIN data: [venelinkochev/bin-list-data](https://github.com/venelinkochev/bin-list-data)
+
+---
+
+## Contact
+
+- Email: timpalacios@u.boisestate.edu
+- GitHub: [@timLP79](https://github.com/timLP79)
+- LinkedIn: [tim-palacios](https://www.linkedin.com/in/tim-palacios/)
